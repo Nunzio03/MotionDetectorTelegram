@@ -23,10 +23,10 @@ args = vars(ap.parse_args())
 def showLastMovement(update, context):
     """Send frames of last movement"""
 
-    bitto.send_message(258714131, "ecco l'ultimo movimento effettuato")
-    bitto.send_photo(258714131, open("frame0.jpg", 'rb'))
-    bitto.send_photo(258714131, open("frame1.jpg", 'rb'))
-    bitto.send_photo(258714131, open("frame2.jpg", 'rb'))
+    bitto.send_message(<CHAT TOKEN>, "ecco l'ultimo movimento effettuato")
+    bitto.send_photo(<CHAT TOKEN>, open("frame0.jpg", 'rb'))
+    bitto.send_photo(<CHAT TOKEN>, open("frame1.jpg", 'rb'))
+    bitto.send_photo(<CHAT TOKEN>, open("frame2.jpg", 'rb'))
 
 
 
@@ -88,7 +88,7 @@ while True:
             continue
         print(time.time() - start_message)
         if time.time() - start_message > 2:
-            bitto.send_message(258714131, "qualcuno si è mosso")
+            bitto.send_message(<CHAT TOKEN>, "qualcuno si è mosso")
             cv2.imwrite("frame1.jpg", frame)
             cv2.imwrite("frame0.jpg", firstFrame)
             cv2.imwrite("frame2.jpg", imutils.resize(vs.read(), width=500))
